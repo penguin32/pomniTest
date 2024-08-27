@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://gtd727m1to5u"]
+
+[ext_resource type="Texture2D" uid="uid://c80cjfi100sun" path="res://icon.svg" id="1_dmikp"]
+
+[node name="Touchscreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -2.0
+offset_top = 4.0
+offset_right = 1147.0
+offset_bottom = 651.0
+
+[node name="Up" type="TouchScreenButton" parent="."]
+position = Vector2(760, 23)
+scale = Vector2(1.33594, 1.39844)
+texture_normal = ExtResource("1_dmikp")
+action = "ui_up"
+
+[node name="Left" type="TouchScreenButton" parent="."]
+position = Vector2(542, 218)
+scale = Vector2(1.25781, 1.41406)
+texture_normal = ExtResource("1_dmikp")
+action = "ui_left"
+
+[node name="Right" type="TouchScreenButton" parent="."]
+position = Vector2(964, 233)
+scale = Vector2(1.35938, 1.30469)
+texture_normal = ExtResource("1_dmikp")
+action = "ui_right"
+
+[node name="Down" type="TouchScreenButton" parent="."]
+position = Vector2(769, 419)
+scale = Vector2(1.36719, 1.33594)
+texture_normal = ExtResource("1_dmikp")
+action = "ui_down"

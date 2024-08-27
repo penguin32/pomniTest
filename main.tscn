@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=3 uid="uid://cskuvog3iot36"]
+
+[ext_resource type="PackedScene" uid="uid://d1jnm87ibwil" path="res://player.tscn" id="1_hbufd"]
+[ext_resource type="PackedScene" uid="uid://dx8ddf6p7gssh" path="res://box.tscn" id="2_84p44"]
+[ext_resource type="PackedScene" uid="uid://gtd727m1to5u" path="res://touchscreen.tscn" id="2_cawe4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kv1bq"]
+size = Vector3(40, 1, 40)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_41nle"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_bwjin"]
+material = SubResource("StandardMaterial3D_41nle")
+size = Vector3(40, 1, 40)
+
+[node name="Main" type="Node"]
+
+[node name="Ground" type="StaticBody3D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_kv1bq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/CollisionShape3D"]
+mesh = SubResource("BoxMesh_bwjin")
+skeleton = NodePath("../..")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.642788, -0.591099, 0.487264, 0, 0.636078, 0.771625, -0.766044, -0.495991, 0.408863, -0.545, 31.696, 25.725)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("1_hbufd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.27531, 13.1797)
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Player"]
+remote_path = NodePath("../../CameraPivot")
+update_rotation = false
+update_scale = false
+
+[node name="CameraPivot" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.27531, 13.1797)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 0.978717, 0.205214, 0, -0.205214, 0.978717, 0, 4.96473, 5.27575)
+
+[node name="Touchscreen" parent="CameraPivot/Camera3D" instance=ExtResource("2_cawe4")]
+offset_left = 1134.0
+offset_top = 313.0
+offset_right = 2283.0
+offset_bottom = 960.0
+
+[node name="Box" parent="." instance=ExtResource("2_84p44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.19154, 0)
+
+[node name="Box2" parent="." instance=ExtResource("2_84p44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.01071, 1.19154, 0)
+
+[node name="Box3" parent="." instance=ExtResource("2_84p44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2.7768, 0.13697)
+
+[node name="Box4" parent="." instance=ExtResource("2_84p44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2591, 0.13697)
+
+[node name="Box5" parent="." instance=ExtResource("2_84p44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.83236, 5.17278, -0.408615)
+
+[node name="Box6" parent="." instance=ExtResource("2_84p44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.57991, 11.4615, -2.96226)
+
+[node name="Box7" parent="." instance=ExtResource("2_84p44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.76926, 4.09291, -0.248429)
+
+[node name="Box8" parent="." instance=ExtResource("2_84p44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.59062, 16.5291, 1.17471)
+
+[node name="Box9" parent="." instance=ExtResource("2_84p44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.59062, 16.5291, -5.04382)
