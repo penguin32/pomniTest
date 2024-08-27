@@ -9,6 +9,8 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 @onready var anim = $Pivot/Character/AnimationPlayer
 
+var joystick = Vector2.ZERO
+
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -26,12 +28,15 @@ func _physics_process(delta):
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+		#This is how we can use discrete direction using simple keys,
+		#now I replaced it with a joystick, for android only.
+		# I would want a mouse control if I want to make games on pc.
+	#var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var direction = (transform.basis * Vector3(joystick.x, 0, joystick.y)).normalized()
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
-		$Pivot.look_at(position + direction)
+		$Pivot.look_at(position + direction, Vector3.UP)
 		$Pivot.rotation.x = PI / 6 * velocity.y / JUMP_VELOCITY # lol
 		anim.play("Run_001")
 	else:
@@ -40,3 +45,7 @@ func _physics_process(delta):
 		anim.play("Idle")
 
 	move_and_slide()
+
+
+func _on_joystick_use_move_vector(move_vector):
+	joystick = move_vector

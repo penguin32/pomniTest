@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://scripts/Joystick.gd" id="2_gulci"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_botli"]
+radius = 83.9
 
 [node name="Touchscreen" type="Control"]
 layout_mode = 3
@@ -13,30 +14,6 @@ offset_top = 4.0
 offset_right = 1147.0
 offset_bottom = 651.0
 
-[node name="Up" type="TouchScreenButton" parent="."]
-position = Vector2(950, 328)
-scale = Vector2(0.5, 0.5)
-texture_normal = ExtResource("1_dmikp")
-action = "ui_up"
-
-[node name="Left" type="TouchScreenButton" parent="."]
-position = Vector2(863, 406)
-scale = Vector2(0.5, 0.5)
-texture_normal = ExtResource("1_dmikp")
-action = "ui_left"
-
-[node name="Right" type="TouchScreenButton" parent="."]
-position = Vector2(1033, 403)
-scale = Vector2(0.5, 0.5)
-texture_normal = ExtResource("1_dmikp")
-action = "ui_right"
-
-[node name="Down" type="TouchScreenButton" parent="."]
-position = Vector2(951, 478)
-scale = Vector2(0.5, 0.5)
-texture_normal = ExtResource("1_dmikp")
-action = "ui_down"
-
 [node name="Space" type="TouchScreenButton" parent="."]
 position = Vector2(150, 417)
 scale = Vector2(0.5, 0.5)
@@ -44,8 +21,13 @@ texture_normal = ExtResource("1_dmikp")
 action = "ui_accept"
 
 [node name="Joystick" type="TouchScreenButton" parent="."]
-position = Vector2(892, 105)
+position = Vector2(854, 385)
 scale = Vector2(1.49922, 1.28213)
 texture_normal = ExtResource("1_dmikp")
 shape = SubResource("CircleShape2D_botli")
 script = ExtResource("2_gulci")
+
+[node name="Circle" type="Sprite2D" parent="."]
+position = Vector2(951, 466)
+scale = Vector2(0.526641, 0.529783)
+texture = ExtResource("1_dmikp")

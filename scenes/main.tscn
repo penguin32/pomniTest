@@ -85,3 +85,7 @@ shape = SubResource("BoxShape3D_kv1bq")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Static Environment/Ground/CollisionShape3D"]
 mesh = SubResource("BoxMesh_bwjin")
 skeleton = NodePath("../..")
+
+[connection signal="use_move_vector" from="Touchscreen/Joystick" to="Player" method="_on_joystick_use_move_vector"]
+
+[editable path="Touchscreen"]
