@@ -20,7 +20,7 @@ func _physics_process(delta):
 		
 	if not is_on_floor():#my solution for standing on rigid2dboxes
 		set_collision_mask_value(2,true)
-	else:
+	if is_on_floor():
 		set_collision_mask_value(2,false)
 	$Pivot.rotation.x = PI / 6 * velocity.y / JUMP_VELOCITY # lol
 

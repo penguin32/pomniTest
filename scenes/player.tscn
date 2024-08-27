@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://d1jnm87ibwil"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_cpokl"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_cpokl"]
 [ext_resource type="PackedScene" uid="uid://bxtnjf3ltf7j4" path="res://pomni/Joined_pomni.glb" id="1_g10qe"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_melpg"]
@@ -12,7 +12,7 @@ script = ExtResource("1_cpokl")
 [node name="Pivot" type="Node3D" parent="."]
 
 [node name="Character" parent="Pivot" instance=ExtResource("1_g10qe")]
-transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, 0, 0, 0)
+transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, 0, 0.0279003, 0)
 
 [node name="Skeleton3D" parent="Pivot/Character/Armature_001" index="0"]
 bones/1/position = Vector3(0.00431522, 2.58674, 0.578101)

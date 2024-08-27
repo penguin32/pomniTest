@@ -1,0 +1,87 @@
+[gd_scene load_steps=7 format=3 uid="uid://cskuvog3iot36"]
+
+[ext_resource type="PackedScene" uid="uid://d1jnm87ibwil" path="res://scenes/player.tscn" id="1_hbufd"]
+[ext_resource type="PackedScene" uid="uid://dx8ddf6p7gssh" path="res://scenes/box.tscn" id="2_84p44"]
+[ext_resource type="PackedScene" uid="uid://gtd727m1to5u" path="res://scenes/touchscreen.tscn" id="2_cawe4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kv1bq"]
+size = Vector3(40, 1, 40)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_41nle"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_bwjin"]
+material = SubResource("StandardMaterial3D_41nle")
+size = Vector3(40, 1, 40)
+
+[node name="Main" type="Node"]
+
+[node name="Touchscreen" parent="." instance=ExtResource("2_cawe4")]
+
+[node name="Player" parent="." instance=ExtResource("1_hbufd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.27531, 16.278)
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Player"]
+remote_path = NodePath("../../CameraPivot")
+update_rotation = false
+update_scale = false
+
+[node name="CameraPivot" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.27531, 16.278)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 0.978717, 0.205214, 0, -0.205214, 0.978717, 0, 4.96473, 5.27575)
+
+[node name="Group Boxes" type="Node" parent="."]
+
+[node name="Box" parent="Group Boxes" instance=ExtResource("2_84p44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.59906, 2.19154, 7.13167)
+
+[node name="Box2" parent="Group Boxes" instance=ExtResource("2_84p44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.58835, 1.19154, 7.13167)
+
+[node name="Box3" parent="Group Boxes" instance=ExtResource("2_84p44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.59906, 2.7768, 7.26864)
+
+[node name="Box4" parent="Group Boxes" instance=ExtResource("2_84p44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.59906, 3.2591, 7.26864)
+
+[node name="Box5" parent="Group Boxes" instance=ExtResource("2_84p44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.43142, 5.17278, 6.72306)
+
+[node name="Box10" parent="Group Boxes" instance=ExtResource("2_84p44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.43142, 6.15738, 6.72306)
+
+[node name="Box11" parent="Group Boxes" instance=ExtResource("2_84p44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.43142, 7.48108, 6.72306)
+
+[node name="Box12" parent="Group Boxes" instance=ExtResource("2_84p44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.43142, 8.92435, 6.72306)
+
+[node name="Box6" parent="Group Boxes" instance=ExtResource("2_84p44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.17897, 11.4615, 4.16941)
+
+[node name="Box7" parent="Group Boxes" instance=ExtResource("2_84p44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.36832, 4.09291, 6.88324)
+
+[node name="Box8" parent="Group Boxes" instance=ExtResource("2_84p44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1897, 16.5291, 8.30638)
+
+[node name="Box9" parent="Group Boxes" instance=ExtResource("2_84p44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1897, 16.5291, 2.08785)
+
+[node name="Static Environment" type="Node" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Static Environment"]
+transform = Transform3D(0.642788, -0.591099, 0.487264, 0, 0.636078, 0.771625, -0.766044, -0.495991, 0.408863, -0.545, 31.696, 25.725)
+shadow_enabled = true
+
+[node name="Ground" type="StaticBody3D" parent="Static Environment"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Static Environment/Ground"]
+shape = SubResource("BoxShape3D_kv1bq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Static Environment/Ground/CollisionShape3D"]
+mesh = SubResource("BoxMesh_bwjin")
+skeleton = NodePath("../..")

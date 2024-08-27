@@ -11,13 +11,17 @@ config_version=5
 [application]
 
 config/name="pomniTest"
-run/main_scene="res://main.tscn"
+run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://resources/icon.svg"
 
 [autoload]
 
-MusicPlayer="*res://music_player.tscn"
+MusicPlayer="*res://scenes/music_player.tscn"
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [layer_names]
 
@@ -29,3 +33,4 @@ MusicPlayer="*res://music_player.tscn"
 
 renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true
+viewport/transparent_background=true
