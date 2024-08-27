@@ -23,6 +23,10 @@ MusicPlayer="*res://scenes/music_player.tscn"
 
 window/stretch/mode="canvas_items"
 
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
 [layer_names]
 
 3d_physics/layer_1="Player"

@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://gtd727m1to5u"]
+[gd_scene load_steps=4 format=3 uid="uid://gtd727m1to5u"]
 
 [ext_resource type="Texture2D" uid="uid://c80cjfi100sun" path="res://resources/icon.svg" id="1_dmikp"]
+[ext_resource type="Script" path="res://scripts/Joystick.gd" id="2_gulci"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_botli"]
 
 [node name="Touchscreen" type="Control"]
 layout_mode = 3
@@ -39,3 +42,10 @@ position = Vector2(150, 417)
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("1_dmikp")
 action = "ui_accept"
+
+[node name="Joystick" type="TouchScreenButton" parent="."]
+position = Vector2(892, 105)
+scale = Vector2(1.49922, 1.28213)
+texture_normal = ExtResource("1_dmikp")
+shape = SubResource("CircleShape2D_botli")
+script = ExtResource("2_gulci")
